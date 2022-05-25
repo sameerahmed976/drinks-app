@@ -1,6 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../Context";
 import Loading from "../Loading";
+import Drink from "./Drink";
 
 const Drinks = () => {
   const { data, isLoading } = useGlobalContext();
@@ -24,8 +25,11 @@ const Drinks = () => {
 
   return (
     <>
-      <section>
-        <h2>Drinks</h2>
+      <h2 className="drinks-heading">Drinks</h2>
+      <section className="drinks-grid">
+        {data.map((item) => {
+          return <Drink key={item.id} {...item} />;
+        })}
       </section>
     </>
   );

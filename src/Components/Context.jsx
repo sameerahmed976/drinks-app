@@ -16,15 +16,14 @@ const Context = ({ children }) => {
     try {
       const response = await fetch(`${url}${searchTerm}`);
       const { drinks } = await response.json();
-      // console.log(data);
       if (drinks) {
         const newDrinks = drinks.map((item) => {
-          const { idDrink, strDrink, strDrinkthumb, strAlcoholic, strGlass } =
+          const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
             item;
           return {
             id: idDrink,
             name: strDrink,
-            image: strDrinkthumb,
+            image: strDrinkThumb,
             info: strAlcoholic,
             glass: strGlass,
           };
